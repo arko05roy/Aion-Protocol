@@ -24,6 +24,14 @@ dist/
 .env
 .env.local
 
+# Wallet keypairs (NEVER commit these!)
+wallet-keypair.json
+*.json
+!package.json
+!tsconfig.json
+!package-lock.json
+target/deploy/*.json
+
 # Build artifacts
 *.so
 *.dylib

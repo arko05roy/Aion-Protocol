@@ -1,11 +1,6 @@
 [workspace]
 members = [
-    "programs/registry",
-    "programs/staking",
-    "programs/consensus",
-    "programs/emissions",
-    "programs/hive",
-    "shared",
+    "programs/registry-native",
 ]
 resolver = "2"
 

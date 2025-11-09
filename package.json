@@ -1,26 +1,56 @@
 {
-  "name": "aion",
+  "name": "poi-protocol",
   "version": "0.1.0",
+  "description": "Proof-of-Intelligence Protocol - Decentralized AI consensus mechanism",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "test": "tsx tests/run-all.ts",
+    "test:unit": "tsx tests/unit/",
+    "test:integration": "tsx tests/integration/",
+    "test:validator": "solana-test-validator",
+    "build:programs": "cd programs/registry-native && cargo build-sbf",
+    "deploy:testnet": "bash scripts/deploy-testnet.sh",
+    "setup:keypair": "bash scripts/setup-keypair.sh",
+    "generate:keypair": "tsx scripts/generate-keypair.ts",
+    "import:wallet": "tsx scripts/import-wallet.ts",
+    "deploy:local": "tsx scripts/deploy-local.ts",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "format": "next format",
+    "clean": "rm -rf .next node_modules",
+    "clean:all": "rm -rf .next node_modules .env",
+    "clean:all:force": "rm -rf .next node_modules .env .env.local",
+    "clean:all:force:force": "rm -rf .next node_modules .env .env.local .env.development.local .env.test.local .env.production.local",
+    "clean:all:force:force:force": "rm -rf .next node_modules .env .env.local .env.development.local .env.test.local .env.production.local"
   },
   "dependencies": {
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "next": "16.0.1"
+    "@solana/spl-token": "^0.4.9",
+    "@solana/web3.js": "^1.95.8",
+    "bs58": "^6.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.0.1"
-  }
+    "eslint-config-next": "16.0.1",
+    "next": "16.0.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "keywords": [
+    "solana",
+    "blockchain",
+    "ai",
+    "consensus",
+    "proof-of-intelligence"
+  ],
+  "author": "",
+  "license": "ISC"
 }
