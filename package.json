@@ -27,9 +27,15 @@
     "clean:all:force:force:force": "rm -rf .next node_modules .env .env.local .env.development.local .env.test.local .env.production.local"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
     "@solana/spl-token": "^0.4.9",
     "@solana/web3.js": "^1.95.8",
-    "bs58": "^6.0.0"
+    "bs58": "^6.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.553.0",
+    "motion": "^12.23.24",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
