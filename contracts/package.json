@@ -1,0 +1,17 @@
+{
+  "name": "@aion/contracts",
+  "version": "0.1.0",
+  "description": "AIon Protocol Smart Contracts",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:registry": "hardhat test test/Registry.test.cjs",
+    "test:integration": "hardhat test test/integration/",
+    "deploy:fuji": "hardhat run scripts/deploy.cjs --network avalancheFuji",
+    "deploy:local": "hardhat run scripts/deploy.cjs --network hardhat",
+    "clean": "hardhat clean"
+  },
+  "keywords": ["aion", "solidity", "ethereum", "evm", "blockchain"],
+  "author": "",
+  "license": "ISC"
+}

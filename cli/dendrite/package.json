@@ -1,0 +1,17 @@
+{
+  "name": "@aion/dendrite",
+  "version": "0.1.0",
+  "description": "AIon Protocol - Dendrite Validator Client CLI",
+  "main": "dist/client.js",
+  "bin": {
+    "dendrite": "./dist/client.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/client.ts",
+    "dev": "tsx watch src/client.ts"
+  },
+  "keywords": ["aion", "validator", "dendrite", "blockchain"],
+  "author": "",
+  "license": "ISC"
+}

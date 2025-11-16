@@ -1,0 +1,17 @@
+{
+  "name": "@aion/axon",
+  "version": "0.1.0",
+  "description": "AIon Protocol - Axon Miner Server CLI",
+  "main": "dist/server.js",
+  "bin": {
+    "axon": "./dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/server.ts",
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": ["aion", "miner", "axon", "blockchain"],
+  "author": "",
+  "license": "ISC"
+}
