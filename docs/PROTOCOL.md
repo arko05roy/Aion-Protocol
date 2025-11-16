@@ -15,7 +15,7 @@ The PoI Protocol enables decentralized coordination between **miners** (producer
 - **Axon**: Server endpoint deployed by miners to receive and process tasks
 - **Dendrite**: Client library used by validators to send tasks and collect responses
 - **Synapse**: Structured message format for task requests and responses
-- **Solana Programs**: On-chain consensus, staking, and emission distribution
+- **EVM Smart Contracts**: On-chain consensus, staking, and emission distribution
 
 ---
 
@@ -42,7 +42,7 @@ interface Synapse {
     // Request metadata
     metadata: {
         validator_uid: number;        // Sender validator UID (u16)
-        validator_hotkey: string;     // Validator's Solana public key
+        validator_hotkey: string;     // Validator's Ethereum address
         timestamp: number;           // Request timestamp (Unix, ms)
         timeout: number;             // Response timeout (milliseconds)
         nonce: string;               // Request nonce for replay protection
@@ -63,7 +63,7 @@ interface SynapseResponse {
     task_id: string;                 // Original task identifier
     subnet_id: number;               // Subnet identifier
     miner_uid: number;               // Miner UID (u16)
-    miner_hotkey: string;            // Miner's Solana public key
+    miner_hotkey: string;            // Miner's Ethereum address
     
     // Task result
     result: {
@@ -117,7 +117,7 @@ enum TaskType {
 - **Protocol**: HTTP/1.1 or HTTP/2
 - **Method**: POST for task requests
 - **Content-Type**: `application/json`
-- **Authentication**: Solana signature verification
+- **Authentication**: ECDSA signature verification (Ethereum standard)
 
 ### 3.2 Axon Endpoints
 
@@ -270,17 +270,20 @@ const signature = await signer.signMessage(message);
 
 #### 3.3.3 Signature Verification
 
-Both parties verify signatures using Solana's `ed25519` signature verification:
+Both parties verify signatures using Ethereum's ECDSA signature verification:
 
-```rust
-// Pseudocode
-pub fn verify_signature(
-    message: &[u8],
-    signature: &[u8; 64],
-    public_key: &Pubkey,
-) -> bool {
-    // Use Solana's ed25519 verification
-    public_key.verify(message, signature)
+```typescript
+// Pseudocode - Ethereum ECDSA verification
+import { verifyMessage } from 'ethers';
+
+async function verifySignature(
+    message: string,
+    signature: string,
+    address: string
+): Promise<boolean> {
+    // Recover address from signature
+    const recoveredAddress = verifyMessage(message, signature);
+    return recoveredAddress.toLowerCase() === address.toLowerCase();
 }
 ```
 

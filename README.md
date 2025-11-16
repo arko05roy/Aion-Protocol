@@ -13,29 +13,31 @@ The Proof-of-Intelligence Protocol (PoI) establishes a decentralized consensus m
 
 ## Architecture
 
-### Solana Programs
+### EVM Smart Contracts
 
-1. **Registry Program** (`programs/registry/`)
+The protocol will be implemented as a set of modular smart contracts on EVM-compatible chains:
+
+1. **Registry Contract**
    - Subnet creation and configuration
    - Neuron registration and UID assignment
    - Subnet metadata management
 
-2. **Staking Program** (`programs/staking/`)
-   - Validator SOL staking
+2. **Staking Contract**
+   - Validator staking
    - Delegation mechanics
    - Stake weight calculation: `W = α + 0.18 × τ`
 
-3. **Consensus Program** (`programs/consensus/`)
+3. **Consensus Contract**
    - Weight submission from validators
    - Weighted Median Consensus Algorithm
    - Trust score calculation
 
-4. **Emissions Program** (`programs/emissions/`)
+4. **Emissions Contract**
    - Reward distribution based on consensus
    - α token (TAO-equivalent) accounting
    - Cross-subnet allocation
 
-5. **Hive Program** (`programs/hive/`)
+5. **Hive Contract**
    - Global metagraph registry
    - Inter-subnet coordination
    - Global governance
@@ -50,25 +52,20 @@ The Proof-of-Intelligence Protocol (PoI) establishes a decentralized consensus m
 
 ### Prerequisites
 
-- Rust 1.90.0+
-- Solana CLI (for deployment)
-- Anchor Framework 0.30.0+
+- Node.js 18+
+- npm or yarn
 
-### Building
-
-```bash
-# Build all programs
-anchor build
-
-# Build specific program
-cd programs/registry && cargo build-sbf
-```
-
-### Testing
+### Development
 
 ```bash
-# Run tests
-anchor test
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
 ## Documentation
@@ -80,24 +77,19 @@ anchor test
 
 ```
 poi/
-├── programs/
-│   ├── registry/      # Subnet and neuron registry
-│   ├── staking/       # Staking and delegation
-│   ├── consensus/     # Weighted median consensus
-│   ├── emissions/     # Reward distribution
-│   └── hive/          # Global metagraph
-├── shared/            # Shared types and utilities
-├── docs/              # Documentation
-└── Anchor.toml        # Anchor configuration
+├── contracts/          # EVM smart contracts (Solidity)
+├── app/                # Next.js frontend
+├── docs/               # Documentation
+└── package.json        # Project configuration
 ```
 
 ## Key Features
 
-- **Modular Programs**: Separate programs for maintainability
+- **Modular Contracts**: Separate contracts for maintainability
 - **On-Chain Consensus**: Transparent, verifiable consensus computation
 - **Weighted Median**: Robust consensus algorithm resistant to outliers
 - **Subnet Autonomy**: Each subnet manages its own economy
-- **Solana Native**: Leverages Solana's speed and low fees
+- **EVM Compatible**: Works on Ethereum and EVM-compatible chains
 
 ## License
 
@@ -106,4 +98,3 @@ poi/
 ## Contributing
 
 [To be determined]
-

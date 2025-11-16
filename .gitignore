@@ -1,13 +1,3 @@
-# Rust
-target/
-**/*.rs.bk
-Cargo.lock
-
-# Anchor
-.anchor/
-test-ledger/
-.DS_Store
-
 # Node
 node_modules/
 dist/
@@ -23,18 +13,6 @@ dist/
 # Environment
 .env
 .env.local
-
-# Wallet keypairs (NEVER commit these!)
-wallet-keypair.json
-*.json
-!package.json
-!tsconfig.json
-!package-lock.json
-target/deploy/*.json
-
-# Build artifacts
-*.so
-*.dylib
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
